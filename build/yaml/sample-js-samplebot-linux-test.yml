@@ -72,9 +72,9 @@ jobs:
 
   - powershell: |
       npm --version
-      npm i npm@latest
+      npm i -g npm@8.5.5
       npm --version
-    displayName: install latest npm
+    displayName: install npm v 8.5.5
   
   - powershell: |
       $packageName = "botbuilder";

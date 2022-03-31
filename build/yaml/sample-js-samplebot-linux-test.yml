@@ -70,6 +70,12 @@ jobs:
   - checkout: self
     persistCredentials: True
 
+- powershell: |
+      npm --version
+      npm i npm@latest
+      npm --version
+  displayName: install latest npm
+  
   - powershell: |
       $packageName = "botbuilder";
 

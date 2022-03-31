@@ -74,7 +74,7 @@ jobs:
       npm --version
       npm i npm@latest
       npm --version
-  displayName: install latest npm
+    displayName: install latest npm
   
   - powershell: |
       $packageName = "botbuilder";

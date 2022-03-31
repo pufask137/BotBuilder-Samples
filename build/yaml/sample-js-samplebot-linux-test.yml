@@ -70,7 +70,7 @@ jobs:
   - checkout: self
     persistCredentials: True
 
-- powershell: |
+  - powershell: |
       npm --version
       npm i npm@latest
       npm --version

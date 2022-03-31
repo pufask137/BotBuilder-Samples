@@ -263,6 +263,10 @@ jobs:
       solution: samples/csharp_dotnetcore/tests/Samples.$(SampleBotName).FunctionalTests/Samples.$(SampleBotName).FunctionalTests.csproj
       nugetConfigPath: $(System.DefaultWorkingDirectory)/samples/csharp_dotnetcore/tests/Samples.$(SampleBotName).FunctionalTests/nuget.config
 
+  - powershell: |
+      dotnet --info
+    displayName: list .NET Core versions installed
+
   - task: DotNetCoreCLI@2
     displayName: dotnet build dotnet Samples.$(SampleBotName).FunctionalTests.csproj
     inputs:

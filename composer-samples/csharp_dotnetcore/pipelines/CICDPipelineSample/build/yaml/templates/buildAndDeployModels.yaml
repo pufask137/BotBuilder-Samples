@@ -36,7 +36,7 @@ steps:
   inputs:
     targetType: "inline"
     script: |
-      $generatedDirectory = "${{ parameters.sourceDirectory }}/generated"
+      $generatedDirectory = Join-Path -Path "${{ parameters.sourceDirectory }} -ChildPath "generated"
       
       # Clean and recreate the generated directory
       if (Test-Path $generatedDirectory)
@@ -44,7 +44,7 @@ steps:
         Remove-Item -Path $generatedDirectory -Force -Recurse
       }
 
-      $outputDirectory = "$generatedDirectory/interruption"
+      $outputDirectory = Join-Path -Path "$generatedDirectory" -ChildPath "interruption"
       New-Item -name $outputDirectory -ItemType "directory"
 
 # Cross train LU models

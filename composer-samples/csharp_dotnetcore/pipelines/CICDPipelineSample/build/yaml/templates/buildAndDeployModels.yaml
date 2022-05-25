@@ -44,9 +44,9 @@ steps:
         Remove-Item -Path $generatedDirectory -Force -Recurse;
       }
 
-      $outputDirectory = Join-Path -Path "$generatedDirectory" -ChildPath "interruption";
+      $outputDirectory = Join-Path -Path $generatedDirectory -ChildPath "interruption";
       $outputDirectory;
-      New-Item -name "$outputDirectory" -ItemType "directory";
+      New-Item -Path $outputDirectory -ItemType "directory";
 
 # Cross train LU models
 - task: PowerShell@2

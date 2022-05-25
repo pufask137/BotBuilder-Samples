@@ -45,7 +45,7 @@ steps:
       }
 
       $outputDirectory = "$generatedDirectory/interruption"
-      New-Item -Path /. -name $outputDirectory -ItemType "directory"
+      New-Item -name $outputDirectory -ItemType "directory"
 
 # Cross train LU models
 - task: PowerShell@2

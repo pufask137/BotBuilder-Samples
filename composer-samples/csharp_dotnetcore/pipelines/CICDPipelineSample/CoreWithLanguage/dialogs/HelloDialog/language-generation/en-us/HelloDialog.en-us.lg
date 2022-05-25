@@ -1,0 +1,12 @@
+[import](common.lg)
+
+# SendActivity_0hUhq2()
+[Activity
+    Text = ${SendActivity_0hUhq2_text()}
+]
+
+# SendActivity_0hUhq2_text()
+- Yo
+- Hi there.
+- Greetniks!
+- Hello.

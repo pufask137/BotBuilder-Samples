@@ -36,17 +36,16 @@ steps:
   inputs:
     targetType: "inline"
     script: |
-      $generatedDirectory = Join-Path -Path "${{ parameters.sourceDirectory }}" -ChildPath "generated";
+      $generatedDirectory = "${{ parameters.sourceDirectory }}/generated"
       
       # Clean and recreate the generated directory
       if (Test-Path $generatedDirectory)
       {
-        Remove-Item -Path $generatedDirectory -Force -Recurse;
+        Remove-Item -Path $generatedDirectory -Force -Recurse
       }
 
-      $outputDirectory = Join-Path -Path $generatedDirectory -ChildPath "interruption";
-      $outputDirectory;
-      New-Item -Path $outputDirectory -ItemType "directory";
+      $outputDirectory = "$generatedDirectory/interruption"
+      New-Item -Path /. -name $outputDirectory -ItemType "directory"
 
 # Cross train LU models
 - task: PowerShell@2
@@ -69,7 +68,7 @@ steps:
   displayName: "Publish LUIS"
   inputs:
     targetType: "filePath"
-    filePath: Join-Path -Path "${{ parameters.yamlDirectory }}" -ChildPath "templates/Build-LUIS.ps1"
+    filePath: "${{ parameters.yamlDirectory }}/templates/Build-LUIS.ps1"
     arguments: -outputDirectory ./generated -sourceDirectory ./ -crossTrainedLUDirectory ./generated/interruption -authoringKey ${{ parameters.luisAuthoringKey }} -authoringRegion ${{ parameters.luisAuthoringRegion }} -botName ${{ parameters.botName }} 
     # Note: the working directory needs to be set to the bot's source directory
     # to allow for the creation of relative paths in the generated config files.

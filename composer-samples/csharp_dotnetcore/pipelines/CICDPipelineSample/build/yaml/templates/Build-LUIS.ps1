@@ -41,7 +41,7 @@ if ($models.Count -eq 0)
 }
 
 # Create luConfig file with a list of the LUIS models
-$luConfigFile = Join-Path -Path $crossTrainedLUDirectory -ChildPath "luConfigLuis.json"
+$luConfigFile = "$crossTrainedLUDirectory/luConfigLuis.json"
 Write-Host "Creating $luConfigFile..."
 New-LuConfigFile -luConfig $luConfigFile -luModels $models -path "."
 

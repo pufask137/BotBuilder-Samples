@@ -1,0 +1,10 @@
+{
+  "EmptyBot2.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "HelloTrigger": [
+        "Hello.en-us"
+      ]
+    }
+  }
+}

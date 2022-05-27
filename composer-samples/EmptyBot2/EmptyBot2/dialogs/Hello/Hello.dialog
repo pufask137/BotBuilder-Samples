@@ -1,0 +1,32 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "yw2wGl",
+    "name": "Hello",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "KtNa4b"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "3v1PdX"
+          },
+          "activity": "${SendActivity_3v1PdX()}"
+        }
+      ]
+    }
+  ],
+  "generator": "Hello.lg",
+  "recognizer": "Hello.lu.qna",
+  "id": "Hello"
+}

@@ -1,0 +1,11 @@
+[import](common.lg)
+
+# SendActivity_3v1PdX()
+[Activity
+    Text = ${SendActivity_3v1PdX_text()}
+]
+
+# SendActivity_3v1PdX_text()
+- Yo
+- Hi
+- Hi there, booby!

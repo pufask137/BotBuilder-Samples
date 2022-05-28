@@ -1,0 +1,32 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "qJisqC",
+    "name": "HelloDialog",
+    "comment": "Responds to \"hi\""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "kggSCB"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "0hUhq2"
+          },
+          "activity": "${SendActivity_0hUhq2()}"
+        }
+      ]
+    }
+  ],
+  "generator": "HelloDialog.lg",
+  "recognizer": "HelloDialog.lu.qna",
+  "id": "HelloDialog"
+}

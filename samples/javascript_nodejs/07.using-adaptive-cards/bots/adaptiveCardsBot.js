@@ -2,7 +2,6 @@
 // Licensed under the MIT License.
 
 const { ActivityHandler, CardFactory } = require('botbuilder');
-
 // Import AdaptiveCard content.
 const FlightItineraryCard = require('../resources/FlightItineraryCard.json');
 const ImageGalleryCard = require('../resources/ImageGalleryCard.json');
@@ -37,11 +36,33 @@ class AdaptiveCardsBot extends ActivityHandler {
         });
 
         this.onMessage(async (context, next) => {
-            const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
-            await context.sendActivity({
-                text: 'Here is an Adaptive Card:',
-                attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
-            });
+            // var randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
+            const text = context.activity.text.toLowerCase();
+            switch (text) {
+            case '1':
+                await context.sendActivity({ text: 'adap1:', attachments: [CardFactory.adaptiveCard(CARDS[0])] });
+                break;
+            case '2':
+                await context.sendActivity({ text: 'adap2:', attachments: [CardFactory.adaptiveCard(CARDS[1])] });
+                break;
+            case '3':
+                await context.sendActivity({ text: 'adap3:', attachments: [CardFactory.adaptiveCard(CARDS[2])] });
+                break;
+            case '4':
+                await context.sendActivity({ text: 'adap4:', attachments: [CardFactory.adaptiveCard(CARDS[3])] });
+                break;
+            case '5':
+                await context.sendActivity({ text: 'adap5:', attachments: [CardFactory.adaptiveCard(CARDS[4])] });
+                break;
+            default:
+                await context.sendActivity(`This is a simple Welcome Bot sample. You can say 'intro' to
+                                                see the introduction card. If you are running this bot in the Bot
+                                                Framework Emulator, press the 'Start Over' button to simulate user joining a bot or a channel`);
+            }
+            // await context.sendActivity({
+            //     text: 'Here is an Adaptive Card:',
+            //     attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
+            // });
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();

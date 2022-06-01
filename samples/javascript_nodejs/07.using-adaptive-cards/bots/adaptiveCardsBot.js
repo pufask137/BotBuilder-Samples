@@ -36,7 +36,7 @@ class AdaptiveCardsBot extends ActivityHandler {
         });
 
         this.onMessage(async (context, next) => {
-            // var randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
+            var randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
             const text = context.activity.text.toLowerCase();
             switch (text) {
             case '1':
@@ -55,9 +55,10 @@ class AdaptiveCardsBot extends ActivityHandler {
                 await context.sendActivity({ text: 'adap5:', attachments: [CardFactory.adaptiveCard(CARDS[4])] });
                 break;
             default:
-                await context.sendActivity(`This is a simple Welcome Bot sample. You can say 'intro' to
-                                                see the introduction card. If you are running this bot in the Bot
-                                                Framework Emulator, press the 'Start Over' button to simulate user joining a bot or a channel`);
+                await context.sendActivity({
+                    text: 'Here is an Adaptive Card:',
+                    attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
+                });
             }
             // await context.sendActivity({
             //     text: 'Here is an Adaptive Card:',

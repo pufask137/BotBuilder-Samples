@@ -18,7 +18,7 @@ const CARDS = [
     SolitaireCard
 ];
 
-const WELCOME_TEXT = 'This bot will introduce you to Adaptive Cards. Type anything to see an Adaptive Card.';
+const WELCOME_TEXT = 'This bot will introduce you to Adaptive Cards. Type 1 to 5 to see an Adaptive Card.';
 
 class AdaptiveCardsBot extends ActivityHandler {
     constructor() {
@@ -60,11 +60,7 @@ class AdaptiveCardsBot extends ActivityHandler {
                     attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
                 });
             }
-            // await context.sendActivity({
-            //     text: 'Here is an Adaptive Card:',
-            //     attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
-            // });
-
+            await context.sendActivity(`${ WELCOME_TEXT }`);
             // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
